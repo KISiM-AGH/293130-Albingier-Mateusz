@@ -34,7 +34,7 @@ namespace FullStack_Project_IE_2.Services
             }
             catch(Exception e)
             {
-                return new UserResponse($"An error occurred when deleting the category: {e.Message}");
+                return new UserResponse($"An error occurred when deleting dancer: {e.Message}");
             }
 
             

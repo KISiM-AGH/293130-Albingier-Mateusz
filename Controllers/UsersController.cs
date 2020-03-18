@@ -66,7 +66,7 @@ namespace FullStack_Project_IE_2.Controllers
         {
             var result = await userService.DeleteAsync(id);
             
-            if(!result.Success) return BadRequest(IActionResult.Message);
+            if(!result.Success) return BadRequest(result.Message);
 
             var userResource = mapper.Map<User, UserResource>(result.User);
             return Ok(userResource);

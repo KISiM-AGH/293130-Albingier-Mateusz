@@ -28,13 +28,11 @@ namespace FullStack_Project_IE_2.Persistence.Contexts
 
             builder.Entity<Couple>().HasKey(p=>p.Id);
             builder.Entity<Couple>().Property(p=>p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Couple>().Property(p=>p.Point_LA).IsRequired();
-            builder.Entity<Couple>().Property(p=>p.Point_ST).IsRequired();
             builder.Entity<Couple>().HasMany(p=>p.Dancers).WithOne(p=>p.Couple).HasForeignKey(p=>p.CoupleId);
 
-            /*builder.Entity<Couple>().HasData(
-                new Couple { Id = 101, Point_LA = false, Point_ST = false}
-                );*/
+            builder.Entity<Couple>().HasData(
+                new Couple { Id = 1}
+                );
 
         }
 

@@ -31,6 +31,8 @@ namespace FullStack_Project_IE_2
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ICoupleRepository, CoupleRepository>();
+            services.AddScoped<ICoupleService, CoupleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
