@@ -8,6 +8,7 @@ namespace FullStack_Project_IE_2.Persistence.Contexts
 
         public DbSet<User> Users { get; set;}
         public DbSet<Couple> Couples { get; set;}
+        public DbSet<Competition> Competitions { get; set;}
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         
@@ -33,6 +34,11 @@ namespace FullStack_Project_IE_2.Persistence.Contexts
             builder.Entity<Couple>().HasData(
                 new Couple { Id = 1}
                 );
+
+            builder.Entity<Competition>().HasKey(p=>p.Id);
+            builder.Entity<Competition>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Competition>().Property(p => p.Location).IsRequired().HasMaxLength(30);
+
 
         }
 
