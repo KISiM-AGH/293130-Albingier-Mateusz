@@ -35,8 +35,8 @@ namespace FullStack_Project_IE_2.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState.GetErrorMessages());
 
-            var user = mapper.Map<SaveCoupleResource, Couple>(resource);
-            var result = await coupleService.SaveAsync(user);
+            var couple = mapper.Map<SaveCoupleResource, Couple>(resource);
+            var result = await coupleService.SaveAsync(couple);
 
             if (!result.Success) return BadRequest(result.Message);
 
@@ -59,7 +59,7 @@ namespace FullStack_Project_IE_2.Controllers
             return Ok(coupleResource);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await coupleService.DeleteAsync(id);

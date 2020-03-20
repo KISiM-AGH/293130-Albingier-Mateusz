@@ -58,7 +58,7 @@ namespace FullStack_Project_IE_2.Controllers
             return Ok(coupleResource);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await competitionService.DeleteAsync(id);

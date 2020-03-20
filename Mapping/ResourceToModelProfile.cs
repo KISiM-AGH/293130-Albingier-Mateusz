@@ -10,7 +10,8 @@ namespace FullStack_Project_IE_2.Mapping
         public ResourceToModelProfile()
         {
             CreateMap<SaveUserResource, User>();
-            CreateMap<CoupleResource,Couple>();
+            CreateMap<SaveCoupleResource,Couple>();
+            CreateMap<SaveCompetitionResource, Competition>();
         }
     }
 }

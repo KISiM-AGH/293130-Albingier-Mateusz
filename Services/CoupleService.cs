@@ -63,6 +63,7 @@ namespace FullStack_Project_IE_2.Services
 
             if (existingFella == null) return new CoupleResponse("ERROR: Couple not found.");
 
+            existingFella.Id = couple.Id;
             existingFella.Point_LA = couple.Point_LA;
             existingFella.Point_ST = couple.Point_ST;
 

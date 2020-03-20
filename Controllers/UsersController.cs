@@ -61,7 +61,7 @@ namespace FullStack_Project_IE_2.Controllers
             return Ok(userResource);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             var result = await userService.DeleteAsync(id);

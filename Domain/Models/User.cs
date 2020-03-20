@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace FullStack_Project_IE_2.Domain.Models
+﻿namespace FullStack_Project_IE_2.Domain.Models
 {
     public class User
     {
@@ -16,9 +14,6 @@ namespace FullStack_Project_IE_2.Domain.Models
 
         public int CoupleId { set; get; }
         public Couple Couple { set; get; }
-
-
-
 
     }
 }

@@ -24,8 +24,11 @@ namespace FullStack_Project_IE_2.Persistence.Contexts
             builder.Entity<User>().Property(p=>p.LA).IsRequired();
             builder.Entity<User>().Property(p=>p.PointsLA).IsRequired();
             builder.Entity<User>().Property(p=>p.PointsST).IsRequired();
-
-            builder.Entity<User>().HasData(new User { Id = 1, Name = "Jan", role = ERole.Ordinary, ST = EClass.F, LA = EClass.F, PointsLA = 0, PointsST = 0});
+            builder.Entity<User>().HasOne(p=>p.Couple).WithMany(p=>p.Dancers).HasForeignKey(p=>p.CoupleId);
+            
+            builder.Entity<User>().HasData(
+                new User { Id = 1000, Name = "Jan", role = ERole.Ordinary, ST = EClass.F, LA = EClass.F, PointsLA = 0, PointsST = 0 }
+                );
 
             builder.Entity<Couple>().HasKey(p=>p.Id);
             builder.Entity<Couple>().Property(p=>p.Id).IsRequired().ValueGeneratedOnAdd();

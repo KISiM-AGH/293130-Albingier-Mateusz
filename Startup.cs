@@ -27,7 +27,7 @@ namespace FullStack_Project_IE_2
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
-            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("test"));
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("vcxbhgnvcf"));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -35,6 +35,7 @@ namespace FullStack_Project_IE_2
             services.AddScoped<ICoupleService, CoupleService>();
             services.AddScoped<ICompetitionRepository, CompetitionRepository>();
             services.AddScoped<ICompetitionService, CompetitionService>();
+            services.AddSwaggerGen(c=>c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "Dancers database", Version = "v1"}));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,12 @@ namespace FullStack_Project_IE_2
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c=>{
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dancers database");
+                });
+            
         }
     }
 }

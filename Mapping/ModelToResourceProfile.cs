@@ -12,6 +12,7 @@ namespace FullStack_Project_IE_2.Mapping
         {
             CreateMap<User, UserResource>().ForMember(s=>s.LA, o=>o.MapFrom(s=>s.LA.ToDescriptionEnum())).ForMember(s=>s.ST, o=>o.MapFrom(s=>s.ST.ToDescriptionEnum()));
             CreateMap<Couple, CoupleResource>();
+            CreateMap<Competition, CompetitionResource>();
         }
     }
 }

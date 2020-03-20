@@ -5,7 +5,7 @@ namespace FullStack_Project_IE_2.Resources
 {
     public class CoupleResource
     {
-
+        public int Id { set; get;}
         public bool Point_LA { set; get; }
         public bool Point_ST { set; get; }
 
