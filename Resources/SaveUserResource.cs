@@ -6,14 +6,16 @@ namespace FullStack_Project_IE_2.Resources
     public class SaveUserResource
     {
         [Required]
-        public int Id { get; set;}
+        public int Id { set; get;}
         [Required]
         [MaxLength(30)]
         public string Name { get; set; }
         [Required]
-        public ERole ST { get; set;}
+        public EClass ST { get; set;}
         [Required]
-        public ERole LA { get; set; }
+        public EClass LA { get; set; }
+        [Required]
+        public ERole role { set; get;}
 
     }
 }

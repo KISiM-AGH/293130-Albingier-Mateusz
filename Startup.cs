@@ -27,7 +27,7 @@ namespace FullStack_Project_IE_2
         {
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
-            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("vcxbhgnvcf"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();

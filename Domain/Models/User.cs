@@ -12,7 +12,6 @@
         public int PointsST { set; get; }
         public int PointsLA { set; get; }
 
-        public int CoupleId { set; get; }
         public Couple Couple { set; get; }
 
     }

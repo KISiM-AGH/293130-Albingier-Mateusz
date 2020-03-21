@@ -10,7 +10,7 @@ namespace FullStack_Project_IE_2.Mapping
 
         public ModelToResourceProfile()
         {
-            CreateMap<User, UserResource>().ForMember(s=>s.LA, o=>o.MapFrom(s=>s.LA.ToDescriptionEnum())).ForMember(s=>s.ST, o=>o.MapFrom(s=>s.ST.ToDescriptionEnum()));
+            CreateMap<User, UserResource>().ForMember(s=>s.LA, o=>o.MapFrom(s=>s.LA.ToDescriptionEnum())).ForMember(s=>s.ST, o=>o.MapFrom(s=>s.ST.ToDescriptionEnum())).ForMember(s=>s.role, o=>o.MapFrom(s=>s.role.ToDescriptionEnum()));
             CreateMap<Couple, CoupleResource>();
             CreateMap<Competition, CompetitionResource>();
         }

@@ -2,19 +2,19 @@
 
 namespace FullStack_Project_IE_2.Domain.Models
 {
-    public enum ERole : byte
+    public enum ERole 
     {
         [Description("O")]
-        Ordinary = 1,
+        O = 1,
 
         [Description("D")]
-        Dancer = 2,
+        D = 2,
 
         [Description("J")]
-        Judge = 3,
+        J = 3,
 
         [Description("C")]
-        Chairman = 4
+        C = 4
 
     }
 }
