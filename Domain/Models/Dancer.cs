@@ -1,6 +1,6 @@
 ﻿namespace FullStack_Project_IE_2.Domain.Models
 {
-    public class User
+    public class Dancer
     {
         public int Id { get; set;}
         public string Name { get; set;}

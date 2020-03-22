@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FullStack_Project_IE_2.Resources
 {
-    public class SaveUserResource
+    public class SaveDancerResource
     {
         [Required]
         public int Id { set; get;}

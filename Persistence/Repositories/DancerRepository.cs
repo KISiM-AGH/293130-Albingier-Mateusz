@@ -7,32 +7,32 @@ using System.Threading.Tasks;
 
 namespace FullStack_Project_IE_2.Persistence.Repositories
 {
-    public class UserRepository : BaseRepository, IUserRepository
+    public class DancerRepository : BaseRepository, IDancerRepository
     {
 
-        public UserRepository(AppDbContext context) : base(context) { }
+        public DancerRepository(AppDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<User>> ListAsync()
+        public async Task<IEnumerable<Dancer>> ListAsync()
         {
             return await context.Users.ToListAsync();
         }
 
-        public async Task AddAsync(User user)
+        public async Task AddAsync(Dancer user)
         {
             await context.Users.AddAsync(user);
         }
 
-        public async Task<User> FindById(int id)
+        public async Task<Dancer> FindById(int id)
         {
             return await context.Users.FindAsync(id);
         }
 
-        public void Update(User user)
+        public void Update(Dancer user)
         {
             context.Users.Update(user);
         }
 
-        public void Remove(User user)
+        public void Remove(Dancer user)
         {
             context.Users.Remove(user);
         }

@@ -2,7 +2,7 @@
 
 namespace FullStack_Project_IE_2.Resources
 {
-    public class UserResource
+    public class DancerResource
     {
 
         public int Id { get; set; }

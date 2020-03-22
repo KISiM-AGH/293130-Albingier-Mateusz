@@ -9,6 +9,6 @@ namespace FullStack_Project_IE_2.Domain.Models
         public string Location { set; get;}
         public DateTime date { get; set;}
 
-        public IList<User> Dancers { set; get; } = new List<User>();
+        public IList<Dancer> Dancers { set; get; } = new List<Dancer>();
     }
 }

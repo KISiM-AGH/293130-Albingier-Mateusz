@@ -8,62 +8,62 @@ using System.Threading.Tasks;
 
 namespace FullStack_Project_IE_2.Services
 {
-    public class UserService : IUserService
+    public class DancerService : IDancerService
     {
 
-        private readonly IUserRepository userRepository;
+        private readonly IDancerRepository userRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        public DancerService(IDancerRepository userRepository, IUnitOfWork unitOfWork)
         {
             this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<UserResponse> DeleteAsync(int id)
+        public async Task<DancerResponse> DeleteAsync(int id)
         {
             var existingFella = await userRepository.FindById(id);
-            if(existingFella == null) return new UserResponse("User not found.");
+            if(existingFella == null) return new DancerResponse("User not found.");
 
             try
             {
                 userRepository.Remove(existingFella);
                 await unitOfWork.CompleteAsync();
 
-                return new UserResponse(existingFella);
+                return new DancerResponse(existingFella);
             }
             catch(Exception e)
             {
-                return new UserResponse($"An error occurred when deleting dancer: {e.Message}");
+                return new DancerResponse($"An error occurred when deleting dancer: {e.Message}");
             }
 
             
         }
 
-        public async Task<IEnumerable<User>> ListAsync()
+        public async Task<IEnumerable<Dancer>> ListAsync()
         {
             return await userRepository.ListAsync();
         }
 
-        public async Task<UserResponse> SaveAsync(User user)
+        public async Task<DancerResponse> SaveAsync(Dancer user)
         {
             try
             {
                 await userRepository.AddAsync(user);
                 await unitOfWork.CompleteAsync();
-                return new UserResponse(user);
+                return new DancerResponse(user);
             }
             catch(Exception e)
             {
-                return new UserResponse($"Error when saving user: {e.Message}");
+                return new DancerResponse($"Error when saving user: {e.Message}");
             }
         }
 
-        public async Task<UserResponse> UpdateAsync(int id, User user)
+        public async Task<DancerResponse> UpdateAsync(int id, Dancer user)
         {
             var existingFella = await userRepository.FindById(id);
 
-            if(existingFella == null) return new UserResponse("ERROR: User not found.");
+            if(existingFella == null) return new DancerResponse("ERROR: User not found.");
 
             existingFella.Name = user.Name;
             existingFella.LA = user.LA;
@@ -75,11 +75,11 @@ namespace FullStack_Project_IE_2.Services
             {
                 userRepository.Update(existingFella);
                 await unitOfWork.CompleteAsync();
-                return new UserResponse(existingFella);
+                return new DancerResponse(existingFella);
             }
             catch(Exception e)
             {
-                return new UserResponse($"An error occurred when updating the category: {e.Message}");
+                return new DancerResponse($"An error occurred when updating the category: {e.Message}");
             }
 
         }
