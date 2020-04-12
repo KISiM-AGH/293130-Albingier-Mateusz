@@ -14,27 +14,27 @@ namespace FullStack_Project_IE_2.Persistence.Repositories
 
         public async Task<IEnumerable<Dancer>> ListAsync()
         {
-            return await context.Users.ToListAsync();
+            return await context.Dancers.ToListAsync();
         }
 
-        public async Task AddAsync(Dancer user)
+        public async Task AddAsync(Dancer dancer)
         {
-            await context.Users.AddAsync(user);
+            await context.Dancers.AddAsync(dancer);
         }
 
         public async Task<Dancer> FindById(int id)
         {
-            return await context.Users.FindAsync(id);
+            return await context.Dancers.FindAsync(id);
         }
 
-        public void Update(Dancer user)
+        public void Update(Dancer dancer)
         {
-            context.Users.Update(user);
+            context.Dancers.Update(dancer);
         }
 
-        public void Remove(Dancer user)
+        public void Remove(Dancer dancer)
         {
-            context.Users.Remove(user);
+            context.Dancers.Remove(dancer);
         }
     }
 }

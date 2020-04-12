@@ -3,12 +3,14 @@ using FullStack_Project_IE_2.Domain.Models;
 using FullStack_Project_IE_2.Domain.Services;
 using FullStack_Project_IE_2.Extensions;
 using FullStack_Project_IE_2.Resources;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace FullStack_Project_IE_2.Controllers
 {
+    [Authorize]
     [Route("/api/[controller]")]
     public class CouplesController : Controller
     {

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FullStack_Project_IE_2.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FullStack_Project_IE_2.Controllers
 {
+    [Authorize]
     [Route("/api/[controller]")]
     public class DancersController : Controller
     {
@@ -31,7 +33,6 @@ namespace FullStack_Project_IE_2.Controllers
             return resources;
         }
 
-
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveDancerResource resource)
         {
@@ -45,7 +46,7 @@ namespace FullStack_Project_IE_2.Controllers
             var userResource = mapper.Map<Dancer, DancerResource>(result.User);
             return Ok(userResource);
             
-        } 
+        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAsync(int id, [FromBody] SaveDancerResource resource)

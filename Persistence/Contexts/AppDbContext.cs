@@ -1,12 +1,14 @@
-﻿using FullStack_Project_IE_2.Domain.Models;
+﻿using FullStack_Project_IE_2.Core.Models;
+using FullStack_Project_IE_2.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace FullStack_Project_IE_2.Persistence.Contexts
 {
     public class AppDbContext : DbContext
     {
-
-        public DbSet<Dancer> Users { get; set;}
+        public DbSet<User> Users { get; set;}
+        public DbSet<Type> Types { get; set;}
+        public DbSet<Dancer> Dancers { get; set;}
         public DbSet<Couple> Couples { get; set;}
         public DbSet<Competition> Competitions { get; set;}
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -15,6 +17,8 @@ namespace FullStack_Project_IE_2.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<UserType>().HasKey(q=>new { q.UserId, q.TypeId});
             
             builder.Entity<Dancer>().HasKey(p=>p.Id);
             builder.Entity<Dancer>().Property(p=>p.Id).IsRequired().ValueGeneratedOnAdd();
